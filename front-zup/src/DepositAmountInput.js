@@ -1,17 +1,17 @@
-// DepositAmountInput.js
 import React from 'react';
-import CustomDropdown from './CustomDropdown';
+import './DepositAmountInput.css';
 
-const DepositAmountInput = ({ depositAmount, onDepositAmountChange, tokenOptions, selectedToken }) => {
+const DepositAmountInput = ({ depositAmount, onDepositAmountChange, selectedToken }) => {
   return (
-    <div className="amount-input">
+    <div className="amount-input-container">
       <input
         type="number"
         value={depositAmount}
         onChange={onDepositAmountChange}
         placeholder="0"
+        className="amount-input"
       />
-      <CustomDropdown options={tokenOptions} value={selectedToken} />
+      <span className="selected-token">{selectedToken}</span>
     </div>
   );
 };

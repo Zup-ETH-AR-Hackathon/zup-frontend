@@ -10,3 +10,12 @@
     font-size: 8px;
     color: gray;
 }
+
+
+.term-button {
+    padding: 10px;
+    border: 2px solid transparent; 
+    background-color: #fff;
+    cursor: pointer;
+    transition: border-color 0.3s;
+  }

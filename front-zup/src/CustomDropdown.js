@@ -8,7 +8,7 @@ const customStyles = {
     backgroundColor: '#f8f8f8',
     border: 'none',
     boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
-    borderRadius: '15px',
+    borderRadius: '25px',
     padding: '10px',
     fontSize: '16px',
   }),
@@ -27,7 +27,7 @@ function CustomDropdown({ options, value, onChange }) {
       styles={customStyles}
       options={options}
       value={options.find(option => option.value === value)}
-      onChange={selectedOption => onChange({ target: { value: selectedOption.value } })}
+      onChange={selectedOption => onChange(selectedOption)}
     />
   );
 }

@@ -1,0 +1,12 @@
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect width="20" height="20" rx="7.5" fill="url(#pattern0_13_36)"/>
+<circle cx="10" cy="14.375" r="1.875" fill="#7357FF" stroke="#7357FF" stroke-width="1.25"/>
+<circle opacity="0.6" cx="15" cy="6.87502" r="1.875" fill="#7357FF" stroke="#7357FF" stroke-width="1.25"/>
+<circle opacity="0.3" cx="5" cy="6.87502" r="1.875" fill="#7357FF" stroke="#7357FF" stroke-width="1.25"/>
+<defs>
+<pattern id="pattern0_13_36" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_13_36"/>
+</pattern>
+<image id="image0_13_36" width="1" height="1" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAQSURBVHgBAQUA+v8AAAAAAAAFAAFkeJU4AAAAAElFTkSuQmCC"/>
+</defs>
+</svg>

@@ -1,0 +1,12 @@
+.percent{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.duration{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 8px;
+    color: gray;
+}

@@ -1,14 +1,22 @@
 .home {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 100vh;
-    background-color: #F8F8F8;  }
+    background-color: #F8F8F8;  
+    
+  }
   
   .home-content {
-    text-align: center;
+    text-align: left;
   }
   .little-title{
     text-align: left;
   }
   
+  .middle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F8F8F8;  
+  }

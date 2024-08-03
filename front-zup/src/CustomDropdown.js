@@ -8,7 +8,7 @@ const customStyles = {
     backgroundColor: '#f8f8f8',
     border: 'none',
     boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
-    borderRadius: '25px',
+    borderRadius: '15px',
     padding: '10px',
     fontSize: '16px',
   }),

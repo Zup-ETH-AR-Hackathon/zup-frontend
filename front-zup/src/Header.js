@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connectWallet } from './connectWallet';
-import './Header.css';
+import { ReactComponent as PLUS } from './resources/plus.svg';import './Header.css';
 
 function Header() {
   const [walletAddress, setWalletAddress] = useState('');
@@ -23,8 +23,9 @@ function Header() {
         {walletAddress ? (
           <span className="wallet-address">{walletAddress}</span>
         ) : (
-          <button className="wallet-button" onClick={handleConnectWallet}>
+          <button style={{ display: 'flex', alignItems: 'center' }} className="wallet-button" onClick={handleConnectWallet}>
             <span className='btn-text'>Connect Wallet</span>
+            <PLUS style={{ marginLeft: '10px' }} /> 
           </button>
         )}
       </div>

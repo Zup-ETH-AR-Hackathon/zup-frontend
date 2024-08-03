@@ -1,27 +1,29 @@
 .second-page {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
     background-color: #f8f9fa;
   }
   
   .form-container {
+    margin-top: 20px;
     background-color: white;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    width: 330px;
     text-align: center;
   }
   
   .title {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 18px;
+    text-align: left;
   }
   
   .sub-title {
-    font-size: 18px;
+    font-size: 14px;
     margin-bottom: 10px;
   }
   
@@ -35,14 +37,20 @@
   }
   
   .term-button {
+    width: 90px;
+    height: 90px;
     flex: 1;
     margin: 0 5px;
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
   }
   
   .term-button.active,
@@ -69,13 +77,17 @@
   }
   
   .add-liquidity-button {
-    background-color: #6c5dd3;
+    background-color: #7357FF;
+    font-size: 16px;
+    font-weight: bold;
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 100%;
+    height: 50px;
   }
   
   .add-liquidity-button:hover {

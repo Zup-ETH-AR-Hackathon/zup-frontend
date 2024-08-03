@@ -18,4 +18,11 @@
     background-color: #fff;
     cursor: pointer;
     transition: border-color 0.3s;
-  }
+}
+
+.bottom-pool{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}

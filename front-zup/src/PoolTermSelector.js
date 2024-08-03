@@ -20,7 +20,7 @@ const PoolTermSelector = ({ poolTerm, onTermChange, terms }) => {
           >
             <div>{term.yield}</div>
             <div><span className='percent'>{term.percent}</span></div>
-            <div>{term.name}</div>
+              <div>{term.name}</div>
           </button>
         ))}
       </div>

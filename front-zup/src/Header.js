@@ -1,19 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { connectWallet } from './connectWallet';
-import { ReactComponent as PLUS } from './resources/plus.svg';import './Header.css';
 import { ConnectWallet } from '@thirdweb-dev/react';
 
 
 function Header() {
-  const [walletAddress, setWalletAddress] = useState('');
+  const [walletAddress] = useState('');
 
-  const handleConnectWallet = async () => {
-    const wallet = await connectWallet();
-    if (wallet) {
-      setWalletAddress(wallet.address);
-    }
-  };
+
 
   return (
     <header className="header">
@@ -27,13 +20,11 @@ function Header() {
         ) : (
           <div>
         <ConnectWallet
-          modalSize="compact"
+          modalSize="wide"
           theme="light"
           btnTitle="Connect Wallet"
           modalTitle="Connect your favorite wallet"
         />
-
-        
       </div>
         )}
       </div>

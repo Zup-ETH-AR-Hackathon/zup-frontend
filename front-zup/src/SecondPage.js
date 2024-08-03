@@ -18,9 +18,9 @@ const SecondPage = () => {
   const handleDepositAmount2Change = (e) => setDepositAmount2(e.target.value);
 
   const poolTerms = [
-    { yield: 'Yield', percent: '54%', name: 'Uniswap' },
-    { yield: 'Yield', percent: '34%', name: 'Sushi Swap' },
-    { yield: 'Yield', percent: '12%', name: 'SyncSwap' },
+    { yield: 'Yield', percent: '54%', name: 'Uniswap', img: './resources/lookup.svg' },
+    { yield: 'Yield', percent: '34%', name: 'Sushi Swap', img: './resources/lookup.svg'  },
+    { yield: 'Yield', percent: '12%', name: 'SyncSwap', img: './resources/lookup.svg' },
   ];
 
   return (

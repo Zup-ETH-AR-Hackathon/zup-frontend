@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { useEmbeddedWallet } from "@thirdweb-dev/react";
 import { ThirdwebProvider, coinbaseWallet, embeddedWallet, metamaskWallet, phantomWallet, trustWallet, walletConnect } from "@thirdweb-dev/react";
 
 const customNetwork = {
@@ -10,7 +11,7 @@ const customNetwork = {
   rpc: ["https://534352.rpc.thirdweb.com/${THIRDWEB_API_KEY}"],
   nativeCurrency: {
     name: "Ether",
-    symbol: "CTK",
+    symbol: "SCRL",
     decimals: 18,
   },
   blockExplorers: {

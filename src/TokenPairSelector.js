@@ -31,21 +31,17 @@ function TokenPairSelector() {
   };
 
   return (
-    <div className="token-pair-selector">
+  <div className="token-pair-selector">
+    <div>
       <label className='sub-title'>Select Token Pair</label>
       <div className="dropdowns">
         <CustomDropdown options={tokenOptions} value={token1.value} onChange={handleToken1Change} />
         <CustomDropdown options={tokenOptions} value={token2.value} onChange={handleToken2Change} />
       </div>
-      <button
-        onClick={handleClick}
-        className="search-button"
-        style={{ backgroundColor: isLoading ? '#ECECED' : '#7357FF', color: isLoading ? '#C6C5CA' : 'white' }} 
-      >
-        <span className='btn-text-search'>{isLoading ? 'Searching pool...' : 'Search Pools'}</span>
-        {isLoading ? <LOADER style={{ marginLeft: '10px' }} /> : <LOOKUP style={{ marginLeft: '10px' }} />}
-      </button>
+      <button className="search-button" onClick={handleClick} style={{ backgroundColor: isLoading ? '#ECECED' : '#7357FF', color: isLoading ? '#C6C5CA' : 'white' }}><span className='btn-text-search'>{isLoading ? 'Searching pool...' : 'Search Pools'}</span> {isLoading ? <LOADER style={{ marginLeft: '10px' }}/> : <LOOKUP style={{ marginLeft: '10px' }}/>}</button>
     </div>
+  </div>
+    
   );
 }
 

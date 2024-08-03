@@ -11,7 +11,7 @@ const customNetwork = {
   rpc: ["https://534352.rpc.thirdweb.com/${THIRDWEB_API_KEY}"],
   nativeCurrency: {
     name: "Ether",
-    symbol: "SCRL",
+    symbol: "ETH",
     decimals: 18,
   },
   blockExplorers: {

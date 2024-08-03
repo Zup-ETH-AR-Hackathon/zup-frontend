@@ -6,21 +6,22 @@ function CheckComponent() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('https://zup-backend-507748619dec.herokuapp.com/check')
-      .then((response) => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/check`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        return response.json();
-      })
-      .then((data) => {
+        const data = await response.json();
         setData(data);
         setLoading(false);
-      })
-      .catch((error) => {
+      } catch (error) {
         setError(error);
         setLoading(false);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
 }
 

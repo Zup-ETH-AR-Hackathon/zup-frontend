@@ -1,4 +1,3 @@
-// PoolTermSelector.js
 import React from 'react';
 import './PoolTermSelector.css';
 

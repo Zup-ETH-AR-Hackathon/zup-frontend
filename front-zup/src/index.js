@@ -5,7 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThirdwebProvider, coinbaseWallet, embeddedWallet, metamaskWallet, phantomWallet, trustWallet, walletConnect } from "@thirdweb-dev/react";
 
-// Define your custom network configuration
 const customNetwork = {
   chainId: 534352, 
   rpc: ["https://534352.rpc.thirdweb.com/${THIRDWEB_API_KEY}"],
@@ -20,13 +19,12 @@ const customNetwork = {
   name: "Scroll",
 };
 
-// Configure the ThirdwebProvider with the custom network and supported wallets
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ThirdwebProvider
       activeChain={customNetwork}
-      clientId="b1d2187beccc295e57ae5922065821dd" // Asegúrate de usar tu propio clientId aquí
+      clientId="b1d2187beccc295e57ae5922065821dd"
       supportedWallets={[
         embeddedWallet(),
         metamaskWallet(),

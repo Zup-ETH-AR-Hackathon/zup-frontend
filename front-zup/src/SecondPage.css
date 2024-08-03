@@ -1,0 +1,84 @@
+.second-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+  }
+  
+  .form-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .sub-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .pool-terms {
+    margin-bottom: 20px;
+  }
+  
+  .terms {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .term-button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .term-button.active,
+  .term-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .deposit-amounts {
+    margin-bottom: 20px;
+  }
+  
+  .amount-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .amount-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .add-liquidity-button {
+    background-color: #6c5dd3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-liquidity-button:hover {
+    background-color: #5946c1;
+  }
+  

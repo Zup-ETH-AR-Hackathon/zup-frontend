@@ -1,0 +1,14 @@
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F8F8F8;  }
+  
+  .home-content {
+    text-align: center;
+  }
+  .little-title{
+    text-align: left;
+  }
+  

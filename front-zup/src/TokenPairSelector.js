@@ -2,23 +2,13 @@ import React, { useState } from 'react';
 import CustomDropdown from './CustomDropdown';
 import './TokenPairSelector.css';
 import { useNavigate } from 'react-router-dom';
-import { ReactComponent as LOOKUP } from './resources/lookup.svg';import './Header.css';
-import { ReactComponent as LOADER } from './resources/loader.svg';import './Header.css';
-
-
-
+import { ReactComponent as LOOKUP } from './resources/lookup.svg';
+import { ReactComponent as LOADER } from './resources/loader.svg';
+import './Header.css';
 
 function TokenPairSelector() {
-
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false); 
-
-  const handleClick = () => {
-    setIsLoading(true); // Set loading state
-    setTimeout(() => {
-      navigate('/second'); // Navigate after 1 second
-    }, 1000);
-  };
 
   const [token1, setToken1] = useState({ value: 'ETH', label: 'ETH' });
   const [token2, setToken2] = useState({ value: 'WBTC', label: 'WBTC' });
@@ -32,6 +22,13 @@ function TokenPairSelector() {
 
   const handleToken1Change = (option) => setToken1(option);
   const handleToken2Change = (option) => setToken2(option);
+
+  const handleClick = () => {
+    setIsLoading(true); 
+    setTimeout(() => {
+      navigate('/second', { state: { token1, token2 } }); 
+    }, 1000);
+  };
 
   return (
     <div className="token-pair-selector">

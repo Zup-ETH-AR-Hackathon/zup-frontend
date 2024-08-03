@@ -14,8 +14,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/second" element={<SecondPage />} />
-
-          {/* Add more routes as needed */}
         </Routes>
       </div>
     </Router>

@@ -14,13 +14,13 @@ const PoolTermSelector = ({ poolTerm, onTermChange, terms }) => {
       <div className="terms">
         {terms.map((term) => (
           <button
-            key={term.value}
-            className={`term-button ${poolTerm === term.value ? 'active' : ''}`}
-            onClick={() => onTermChange(term.value)}
+            key={term.name}
+            className={`term-button ${poolTerm === term.name ? 'active' : ''}`}
+            onClick={() => onTermChange(term.name)}
           >
             <div>{term.yield}</div>
             <div><span className='percent'>{term.percent}</span></div>
-              <div>{term.name}</div>
+            <div>{term.name}</div>
           </button>
         ))}
       </div>

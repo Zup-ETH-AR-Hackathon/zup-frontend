@@ -7,47 +7,48 @@ import { Web3Button } from '@thirdweb-dev/react';
 
 const contractAddress = '0xdA0C1c282137d1D4b01ce31536d56959eB9da41c';
 
+const TEN_MINUTES_IN_MS = 60 * 1000 * 10;
+
 const SecondPage = () => {
   const location = useLocation();
-  const { token1, token2, data } = location.state || {
-    token1: { value: 'ETH', label: 'ETH' },
-    token2: { value: 'WBTC', label: 'WBTC' },
-    data: null,
-  };
-  console.log('Data', data);
-
+  const { token1, token2, data } = location.state;
   const [poolTerm, setPoolTerm] = useState('24h');
   const [depositAmount1, setDepositAmount1] = useState('');
   const [depositAmount2, setDepositAmount2] = useState('');
+  const [poolSelectedId, setPoolSelectedId] = useState();
+  const [poolSelectedFeeTier, setPoolSelectedFeeTier] = useState();
 
-  const handlePoolTermChange = term => setPoolTerm(term);
+  const handlePoolTermChange = ({ id, initialFeeTier }) => {
+    console.log('pool selected', id, initialFeeTier);
+    setPoolSelectedId(id);
+    setPoolSelectedFeeTier(initialFeeTier);
+  };
 
   const handleDepositAmount1Change = e => setDepositAmount1(e.target.value);
   const handleDepositAmount2Change = e => setDepositAmount2(e.target.value);
 
   const getPoolObject = pool => ({
+    id: pool.poolId,
+    initialFeeTier: pool.initialFeeTier,
     yield: 'Yield',
     percent: `${parseFloat(pool.apr).toFixed(2)}%`,
     name: `${pool.name}`,
     img: './resources/lookup.svg',
   });
 
-  const poolTerms = [
-    getPoolObject(data.nuri_24hs),
-    getPoolObject(data.izumi_24hs),
-  ];
+  const pools = [getPoolObject(data.nuri_24hs), getPoolObject(data.izumi_24hs)];
 
   const handleAction = async contract => {
-    const callee = '0xAAA78E8C4241990B4ce159E105dA08129345946A';
+    const callee = poolSelectedId;
     const params = {
-      token0: '0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4',
-      token1: '0xf55BEC9cafDbE8730f096Aa55dad6D22d44099Df',
-      fee: 100,
+      token0: token1.id,
+      token1: token2.id,
+      fee: parseInt(poolSelectedFeeTier),
       token0Amount: 100000,
       token1Amount: 100000,
       token0Min: 0,
       token1Min: 0,
-      deadline: 1723753468,
+      deadline: new Date().getTime() + TEN_MINUTES_IN_MS,
     };
     const ret = await contract.call('depositUniswap', [callee, params]);
     console.log('handleAction', ret);
@@ -67,7 +68,7 @@ const SecondPage = () => {
           <PoolTermSelector
             poolTerm={poolTerm}
             onTermChange={handlePoolTermChange}
-            terms={poolTerms}
+            terms={pools}
           />
           <div className="deposit-amounts">
             <h3 className="sub-title">Deposit Amount</h3>

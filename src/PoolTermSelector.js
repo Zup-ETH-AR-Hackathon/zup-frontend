@@ -2,6 +2,7 @@ import React from 'react';
 import './PoolTermSelector.css';
 
 const PoolTermSelector = ({ poolTerm, onTermChange, terms }) => {
+  console.log('terms', terms);
   return (
     <div className="pool-terms">
       <h3 className="sub-title">Select Pool's Term</h3>
@@ -14,7 +15,9 @@ const PoolTermSelector = ({ poolTerm, onTermChange, terms }) => {
           <button
             key={term.name}
             className={`term-button ${poolTerm === term.name ? 'active' : ''}`}
-            onClick={() => onTermChange(term.name)}>
+            onClick={() =>
+              onTermChange({ id: term.id, initialFeeTier: term.initialFeeTier })
+            }>
             <div>{term.yield}</div>
             <div>
               <span className="percent">{term.percent}</span>

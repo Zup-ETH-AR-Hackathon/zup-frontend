@@ -3,39 +3,32 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { useEmbeddedWallet } from "@thirdweb-dev/react";
-import { ThirdwebProvider, coinbaseWallet, embeddedWallet, metamaskWallet, phantomWallet, trustWallet, walletConnect } from "@thirdweb-dev/react";
-
-const customNetwork = {
-  chainId: 534352, 
-  rpc: ["https://534352.rpc.thirdweb.com/${THIRDWEB_API_KEY}"],
-  nativeCurrency: {
-    name: "Ether",
-    symbol: "ETH",
-    decimals: 18,
-  },
-  blockExplorers: {
-    default: { name: "Custom Explorer", url: "https://scrollscan.com" },
-  },
-  name: "Scroll",
-};
+import {
+  ThirdwebProvider,
+  embeddedWallet,
+  metamaskWallet,
+  phantomWallet,
+  walletConnect,
+} from '@thirdweb-dev/react';
+import { Scroll } from '@thirdweb-dev/chains';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ThirdwebProvider
-      activeChain={customNetwork}
+      activeChain={Scroll}
       clientId="b1d2187beccc295e57ae5922065821dd"
       supportedWallets={[
-        embeddedWallet(),
-        metamaskWallet(),
+        metamaskWallet({ recommended: true }),
+        embeddedWallet({
+          auth: {
+            options: ['email', 'google', 'apple', 'facebook'],
+          },
+        }),
         phantomWallet(),
-        coinbaseWallet(),
         walletConnect(),
-        trustWallet(),
-      ]}
-    >
-      <App />    
+      ]}>
+      <App />
     </ThirdwebProvider>
   </React.StrictMode>
 );

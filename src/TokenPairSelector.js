@@ -18,16 +18,28 @@ function TokenPairSelector() {
     { value: 'BTC', label: 'BTC' },
     { value: 'WBTC', label: 'WBTC' },
     { value: 'USDT', label: 'USDT' },
+    { value: 'USDC', label: 'USDC' },
   ];
 
   const handleToken1Change = option => setToken1(option);
   const handleToken2Change = option => setToken2(option);
 
-  const handleClick = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      navigate('/second', { state: { token1, token2 } });
-    }, 1000);
+  const handleClick = async () => {
+    setIsLoading(true); 
+
+    try {
+      const response = await fetch(`https://zup-backend-507748619dec.herokuapp.com/search?tokenA=0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4&tokenB=0xf55BEC9cafDbE8730f096Aa55dad6D22d44099Df`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      
+      navigate('/second', { state: { token1, token2, data } }); 
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

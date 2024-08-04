@@ -9,10 +9,12 @@ const contractAddress = '0xdA0C1c282137d1D4b01ce31536d56959eB9da41c';
 
 const SecondPage = () => {
   const location = useLocation();
-  const { token1, token2 } = location.state || {
+  const { token1, token2, data } = location.state || {
     token1: { value: 'ETH', label: 'ETH' },
     token2: { value: 'WBTC', label: 'WBTC' },
+    data: null,
   };
+  console.log('Data', data);
 
   const [poolTerm, setPoolTerm] = useState('24h');
   const [depositAmount1, setDepositAmount1] = useState('');

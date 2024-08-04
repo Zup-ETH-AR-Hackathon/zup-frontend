@@ -1,8 +1,8 @@
 import React from 'react';
 import './PoolTermSelector.css';
+import { ReactComponent as Fire } from './resources/fire.svg';
 
 const PoolTermSelector = ({ poolTerm, onTermChange, terms }) => {
-  console.log('terms', terms);
   return (
     <div className="pool-terms">
       <h3 className="sub-title">Select Pool's Term</h3>
@@ -18,11 +18,16 @@ const PoolTermSelector = ({ poolTerm, onTermChange, terms }) => {
             onClick={() =>
               onTermChange({ id: term.id, initialFeeTier: term.initialFeeTier })
             }>
-            <div>{term.yield}</div>
-            <div>
-              <span className="percent">{term.percent}</span>
+            <div className='btn-terms-content'>
+              <div>
+                <div>{term.yield}</div>
+                <div>
+                  <span className="percent">{term.percent}</span>
+                </div>
+                <div className="name-tk">{term.name}</div>
+              </div>
+              <Fire/>
             </div>
-            <div className="name-tk">{term.name}</div>
           </button>
         ))}
       </div>

@@ -10,33 +10,59 @@ function TokenPairSelector() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
-  const [token1, setToken1] = useState({ value: 'ETH', label: 'ETH' });
-  const [token2, setToken2] = useState({ value: 'WBTC', label: 'WBTC' });
+  const [token1, setToken1] = useState({
+    value: 'ETH',
+    label: 'ETH',
+    id: '0x5300000000000000000000000000000000000004',
+  });
+  const [token2, setToken2] = useState({
+    value: 'WBTC',
+    label: 'WBTC',
+    id: '0x3c1bca5a656e69edcd0d4e36bebb3fcdaca60cf1',
+  });
 
   const tokenOptions = [
-    { value: 'ETH', label: 'ETH' },
-    { value: 'BTC', label: 'BTC' },
-    { value: 'WBTC', label: 'WBTC' },
-    { value: 'USDT', label: 'USDT' },
-    { value: 'USDC', label: 'USDC' },
+    {
+      value: 'ETH',
+      label: 'ETH',
+      id: '0x5300000000000000000000000000000000000004',
+    },
+    {
+      value: 'WBTC',
+      label: 'WBTC',
+      id: '0x3c1bca5a656e69edcd0d4e36bebb3fcdaca60cf1',
+    },
+    {
+      value: 'USDT',
+      label: 'USDT',
+      id: '0xf55bec9cafdbe8730f096aa55dad6d22d44099df',
+    },
+    {
+      value: 'USDC',
+      label: 'USDC',
+      id: '0x06efdbff2a14a7c8e15944d1f4a48f9f95f663a4',
+    },
   ];
 
   const handleToken1Change = option => setToken1(option);
   const handleToken2Change = option => setToken2(option);
 
   const handleClick = async () => {
-    setIsLoading(true); 
+    setIsLoading(true);
 
     try {
-      const response = await fetch(`https://zup-backend-507748619dec.herokuapp.com/search?tokenA=0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4&tokenB=0xf55BEC9cafDbE8730f096Aa55dad6D22d44099Df`);
+      const baseURL = 'https://zup-backend-507748619dec.herokuapp.com';
+      const response = await fetch(
+        `${baseURL}/search?tokenA=${token1.id}&tokenB=${token2.id}`
+      );
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
       const data = await response.json();
-      
-      navigate('/second', { state: { token1, token2, data } }); 
+
+      navigate('/second', { state: { token1, token2, data } });
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.error('Error fetching data:', error);
     } finally {
       setIsLoading(false);
     }

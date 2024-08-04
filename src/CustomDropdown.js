@@ -2,7 +2,7 @@ import React from 'react';
 import Select from 'react-select';
 
 const customStyles = {
-  control: (provided) => ({
+  control: provided => ({
     ...provided,
     width: '172px',
     backgroundColor: '#f8f8f8',
@@ -15,7 +15,7 @@ const customStyles = {
   indicatorSeparator: () => ({
     display: 'none',
   }),
-  dropdownIndicator: (provided) => ({
+  dropdownIndicator: provided => ({
     ...provided,
     color: 'rgba(0, 0, 0, 0.6)',
   }),
@@ -23,12 +23,14 @@ const customStyles = {
 
 function CustomDropdown({ options, value, onChange }) {
   return (
-    <Select
-      styles={customStyles}
-      options={options}
-      value={options.find(option => option.value === value)}
-      onChange={selectedOption => onChange(selectedOption)}
-    />
+    <div>
+      <Select
+        styles={customStyles}
+        options={options}
+        value={options.find(option => option.value === value)}
+        onChange={selectedOption => onChange(selectedOption)}
+      />
+    </div>
   );
 }
 

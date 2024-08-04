@@ -25,25 +25,16 @@ const SecondPage = () => {
   const handleDepositAmount1Change = e => setDepositAmount1(e.target.value);
   const handleDepositAmount2Change = e => setDepositAmount2(e.target.value);
 
+  const getPoolObject = pool => ({
+    yield: 'Yield',
+    percent: `${parseFloat(pool.apr).toFixed(2)}%`,
+    name: `${pool.name}`,
+    img: './resources/lookup.svg',
+  });
+
   const poolTerms = [
-    {
-      yield: 'Yield',
-      percent: '54%',
-      name: 'Uniswap',
-      img: './resources/lookup.svg',
-    },
-    {
-      yield: 'Yield',
-      percent: '34%',
-      name: 'Sushi Swap',
-      img: './resources/lookup.svg',
-    },
-    {
-      yield: 'Yield',
-      percent: '12%',
-      name: 'SyncSwap',
-      img: './resources/lookup.svg',
-    },
+    getPoolObject(data.nuri_24hs),
+    getPoolObject(data.izumi_24hs),
   ];
 
   const handleAction = async contract => {

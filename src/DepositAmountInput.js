@@ -10,6 +10,7 @@ const DepositAmountInput = ({ depositAmount, onDepositAmountChange, selectedToke
         onChange={onDepositAmountChange}
         placeholder="0"
         className="amount-input"
+        min={0}
       />
       <span className="selected-token">{selectedToken}</span>
     </div>

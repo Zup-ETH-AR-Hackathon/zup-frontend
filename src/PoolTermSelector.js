@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './PoolTermSelector.css';
+import { ReactComponent as Fire } from './resources/fire.svg';
 
-const PoolTermSelector = ({ poolTerm, onTermChange, terms, setSelectedPool }) => {
-  console.log('terms', terms);
+const PoolTermSelector = ({ onTermChange, terms, setSelectedPool }) => {
+  const [selectedTerm, setSelectedTerm] = useState(null);
+
+  const handleTermChange = (term) => {
+    setSelectedTerm(term);
+    onTermChange(term);
+  };
+
   return (
     <div className="pool-terms">
       <h3 className="sub-title">Select Pool's Term</h3>
@@ -14,13 +21,19 @@ const PoolTermSelector = ({ poolTerm, onTermChange, terms, setSelectedPool }) =>
         {terms.map(term => (
           <button
             key={term.name}
-            className={`term-button ${poolTerm === term.name ? 'active' : ''}`}
-            onClick={() => onTermChange(term)}>
-            <div>{term.yield}</div>
-            <div>
-              <span className="percent">{term.percent}</span>
+            className={`term-button ${selectedTerm && selectedTerm.id === term.id ? 'selected' : ''}`}
+            onClick={() => handleTermChange(term)}
+          >
+            <div className='btn-terms-content'>
+              <div>
+                <div>{term.yield}</div>
+                <div>
+                  <span className="percent">{term.percent}</span>
+                </div>
+                <div className="name-tk">{term.name}</div>
+              </div>
+              <Fire />
             </div>
-            <div className="name-tk">{term.name}</div>
           </button>
         ))}
       </div>

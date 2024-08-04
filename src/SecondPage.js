@@ -19,6 +19,7 @@ const SecondPage = () => {
   const [depositAmount1, setDepositAmount1] = useState('');
   const [depositAmount2, setDepositAmount2] = useState('');
   const [selectedPool, setSelectedPool] = useState();
+  const [txHash, setTxHash] = useState('');
 
   useEffect(() => {
     setDepositAmount2(depositAmount1);
@@ -114,12 +115,12 @@ const SecondPage = () => {
       token1Min: 0,
       deadline: new Date().getTime() + TEN_MINUTES_IN_MS,
     };
-    debugger
     const ret = await contract.call(
       poolConfigData[selectedPool.name].depositMethod,
       [callee, params]
     );
-    console.log('handleAction', ret);
+    console.log(ret.receipt.transactionHash);
+    setTxHash(ret.receipt.transactionHash);
   };
 
   // const handleActionTest = async contract => {
@@ -157,7 +158,7 @@ const SecondPage = () => {
             className="add-liquidity-button">
             Zup in
           </Web3Button>
-
+          {!txHash ? <></> : <p>Tx Hash: {txHash}</p>}
           {/* <Web3Button
             contractAddress="0xD3E0444fFcF316Db49D1526dd76E00b0F70676dB"
             action={handleActionTest}

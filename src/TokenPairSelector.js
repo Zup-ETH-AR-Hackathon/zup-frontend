@@ -51,7 +51,7 @@ function TokenPairSelector() {
     setIsLoading(true);
 
     try {
-      const baseURL = 'https://zup-backend-507748619dec.herokuapp.com';
+      const baseURL = 'https://zup-backend-8d25fb328a21.herokuapp.com';
       const response = await fetch(
         `${baseURL}/search?tokenA=${token1.id}&tokenB=${token2.id}`
       );
